@@ -1,0 +1,519 @@
+./Makefile: line 10: CFLAGS: command not found
+./Makefile: line 12: all:: command not found
+./Makefile: line 14: Application:: command not found
+g++: error: MP1Node.o: No such file or directory
+g++: error: EmulNet.o: No such file or directory
+g++: error: Application.o: No such file or directory
+g++: error: Log.o: No such file or directory
+g++: error: Params.o: No such file or directory
+g++: error: Member.o: No such file or directory
+g++: fatal error: no input files
+compilation terminated.
+./Makefile: line 17: MP1Node.o:: command not found
+In file included from Params.h:12:0,
+                 from Log.h:11,
+                 from MP1Node.h:12,
+                 from MP1Node.cpp:8:
+Member.h: In constructor ‘Address::Address(std::string)’:
+Member.h:40:39: error: ‘stoi’ was not declared in this scope
+   int id = stoi(address.substr(0, pos));
+                                       ^
+Member.h: In member function ‘std::string Address::getAddress()’:
+Member.h:50:22: error: ‘to_string’ was not declared in this scope
+   return to_string(id) + ":" + to_string(port);
+                      ^
+In file included from MP1Node.h:16:0,
+                 from MP1Node.cpp:8:
+Queue.h: In static member function ‘static bool Queue::enqueue(std::queue<q_elt>*, void*, int)’:
+Queue.h:24:10: error: ‘class std::queue<q_elt>’ has no member named ‘emplace’
+   queue->emplace(element);
+          ^
+MP1Node.cpp: In member function ‘void MP1Node::removeExpiredMembers()’:
+MP1Node.cpp:282:15: error: ‘i’ does not name a type
+     for (auto i=0u;i<memberNode->memberList.size();i++)
+               ^
+MP1Node.cpp:282:20: error: expected ‘;’ before ‘i’
+     for (auto i=0u;i<memberNode->memberList.size();i++)
+                    ^
+MP1Node.cpp:282:20: error: ‘i’ was not declared in this scope
+MP1Node.cpp:285:15: error: ISO C++ forbids declaration of ‘e’ with no type [-fpermissive]
+         auto& e = memberNode->memberList[i];
+               ^
+MP1Node.cpp:286:34: error: request for member ‘timestamp’ in ‘e’, which is of non-class type ‘int’
+         if (par->getcurrtime - e.timestamp > CFG_GOSSIP_ENTRY_EXPIRATION)
+                                  ^
+MP1Node.cpp:289:18: error: ‘addr’ does not name a type
+             auto addr = getAddr(e.id, e.port);
+                  ^
+MP1Node.cpp:291:75: error: ‘addr’ was not declared in this scope
+                 log->LOG(&memberNode->addr, "removing %s w/ hb %d ts:%d", addr.getAddr().c_str(), e.heartbeat, e.port);
+                                                                           ^
+MP1Node.cpp:291:101: error: request for member ‘heartbeat’ in ‘e’, which is of non-class type ‘int’
+                 log->LOG(&memberNode->addr, "removing %s w/ hb %d ts:%d", addr.getAddr().c_str(), e.heartbeat, e.port);
+                                                                                                     ^
+MP1Node.cpp:291:114: error: request for member ‘port’ in ‘e’, which is of non-class type ‘int’
+                 log->LOG(&memberNode->addr, "removing %s w/ hb %d ts:%d", addr.getAddr().c_str(), e.heartbeat, e.port);
+                                                                                                                  ^
+MP1Node.cpp:292:22: error: ‘a’ does not name a type
+                 auto a = getAddr(e.id, e.port);
+                      ^
+MP1Node.cpp: In member function ‘void MP1Node::doGossip()’:
+MP1Node.cpp:320:9: error: decl-specifier invalid in condition
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+         ^
+MP1Node.cpp:320:14: error: ISO C++ forbids declaration of ‘i’ with no type [-fpermissive]
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+              ^
+MP1Node.cpp:320:39: error: cannot convert ‘std::set<int>::iterator {aka std::_Rb_tree_const_iterator<int>}’ to ‘int’ in initialization
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                       ^
+MP1Node.cpp:320:40: error: expected ‘)’ before ‘;’ token
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                        ^
+MP1Node.cpp:320:42: error: name lookup of ‘i’ changed for ISO ‘for’ scoping [-fpermissive]
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                          ^
+MP1Node.cpp:320:42: note: (if you use ‘-fpermissive’ G++ will accept your code)
+MP1Node.cpp:320:43: error: no match for ‘operator!=’ (operand types are ‘int’ and ‘std::set<int>::iterator {aka std::_Rb_tree_const_iterator<int>}’)
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                           ^
+MP1Node.cpp:320:43: note: candidates are:
+In file included from /usr/include/c++/4.8/iosfwd:40:0,
+                 from /usr/include/c++/4.8/ios:38,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from stdincludes.h:31,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/postypes.h:221:5: note: template<class _StateT> bool std::operator!=(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+     operator!=(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^
+/usr/include/c++/4.8/bits/postypes.h:221:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::fpos<_StateT>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from stdincludes.h:31,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/stl_pair.h:227:5: note: template<class _T1, class _T2> bool std::operator!=(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator!=(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/include/c++/4.8/bits/stl_pair.h:227:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::pair<_T1, _T2>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from stdincludes.h:31,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/stl_iterator.h:303:5: note: template<class _Iterator> bool std::operator!=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator!=(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_iterator.h:303:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::reverse_iterator<_Iterator>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/4.8/bits/char_traits.h:39,
+                 from /usr/include/c++/4.8/ios:40,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from stdincludes.h:31,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/stl_iterator.h:353:5: note: template<class _IteratorL, class _IteratorR> bool std::operator!=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator!=(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_iterator.h:353:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::reverse_iterator<_Iterator>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/string:41:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from stdincludes.h:31,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/allocator.h:138:5: note: template<class _T1, class _T2> bool std::operator!=(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+     operator!=(const allocator<_T1>&, const allocator<_T2>&)
+     ^
+/usr/include/c++/4.8/bits/allocator.h:138:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::allocator<_CharT>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/string:41:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from stdincludes.h:31,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/allocator.h:143:5: note: template<class _Tp> bool std::operator!=(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+     operator!=(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^
+/usr/include/c++/4.8/bits/allocator.h:143:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::allocator<_CharT>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from stdincludes.h:31,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/basic_string.h:2532:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const std::basic_string<_CharT, _Traits, _Alloc>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator!=(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/c++/4.8/bits/basic_string.h:2532:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::basic_string<_CharT, _Traits, _Alloc>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from stdincludes.h:31,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/basic_string.h:2544:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const _CharT*, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator!=(const _CharT* __lhs,
+     ^
+/usr/include/c++/4.8/bits/basic_string.h:2544:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const _CharT*’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from /usr/include/c++/4.8/bits/locale_classes.h:40,
+                 from /usr/include/c++/4.8/bits/ios_base.h:41,
+                 from /usr/include/c++/4.8/ios:42,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from stdincludes.h:31,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/basic_string.h:2556:5: note: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const std::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator!=(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/c++/4.8/bits/basic_string.h:2556:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::basic_string<_CharT, _Traits, _Alloc>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/bits/locale_facets.h:48:0,
+                 from /usr/include/c++/4.8/bits/basic_ios.h:37,
+                 from /usr/include/c++/4.8/ios:44,
+                 from /usr/include/c++/4.8/ostream:38,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from stdincludes.h:31,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/streambuf_iterator.h:210:5: note: template<class _CharT, class _Traits> bool std::operator!=(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+     operator!=(const istreambuf_iterator<_CharT, _Traits>& __a,
+     ^
+/usr/include/c++/4.8/bits/streambuf_iterator.h:210:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::istreambuf_iterator<_CharT, _Traits>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/vector:64:0,
+                 from stdincludes.h:32,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/stl_vector.h:1428:5: note: template<class _Tp, class _Alloc> bool std::operator!=(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+     operator!=(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+     ^
+/usr/include/c++/4.8/bits/stl_vector.h:1428:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::vector<_Tp, _Alloc>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/map:60:0,
+                 from stdincludes.h:33,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/stl_tree.h:316:5: note: template<class _Val> bool std::operator!=(const std::_Rb_tree_iterator<_Tp>&, const std::_Rb_tree_const_iterator<_Val>&)
+     operator!=(const _Rb_tree_iterator<_Val>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_tree.h:316:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::_Rb_tree_iterator<_Tp>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/map:60:0,
+                 from stdincludes.h:33,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/stl_tree.h:927:5: note: template<class _Key, class _Val, class _KeyOfValue, class _Compare, class _Alloc> bool std::operator!=(const std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>&, const std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>&)
+     operator!=(const _Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_tree.h:927:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/map:61:0,
+                 from stdincludes.h:33,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/stl_map.h:986:5: note: template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator!=(const std::map<_Key, _Tp, _Compare, _Alloc>&, const std::map<_Key, _Tp, _Compare, _Alloc>&)
+     operator!=(const map<_Key, _Tp, _Compare, _Alloc>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_map.h:986:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::map<_Key, _Tp, _Compare, _Alloc>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/map:62:0,
+                 from stdincludes.h:33,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/stl_multimap.h:888:5: note: template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator!=(const std::multimap<_Key, _Tp, _Compare, _Alloc>&, const std::multimap<_Key, _Tp, _Compare, _Alloc>&)
+     operator!=(const multimap<_Key, _Tp, _Compare, _Alloc>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_multimap.h:888:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::multimap<_Key, _Tp, _Compare, _Alloc>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/deque:64:0,
+                 from /usr/include/c++/4.8/queue:60,
+                 from stdincludes.h:36,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/stl_deque.h:260:5: note: template<class _Tp, class _Ref, class _Ptr> bool std::operator!=(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _Ref, _Ptr>&)
+     operator!=(const _Deque_iterator<_Tp, _Ref, _Ptr>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_deque.h:260:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::_Deque_iterator<_Tp, _Ref, _Ptr>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/deque:64:0,
+                 from /usr/include/c++/4.8/queue:60,
+                 from stdincludes.h:36,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/stl_deque.h:267:5: note: template<class _Tp, class _RefL, class _PtrL, class _RefR, class _PtrR> bool std::operator!=(const std::_Deque_iterator<_Tp, _Ref, _Ptr>&, const std::_Deque_iterator<_Tp, _RefR, _PtrR>&)
+     operator!=(const _Deque_iterator<_Tp, _RefL, _PtrL>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_deque.h:267:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::_Deque_iterator<_Tp, _Ref, _Ptr>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/deque:64:0,
+                 from /usr/include/c++/4.8/queue:60,
+                 from stdincludes.h:36,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/stl_deque.h:1983:5: note: template<class _Tp, class _Alloc> bool std::operator!=(const std::deque<_Tp, _Alloc>&, const std::deque<_Tp, _Alloc>&)
+     operator!=(const deque<_Tp, _Alloc>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_deque.h:1983:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::deque<_Tp, _Alloc>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/queue:64:0,
+                 from stdincludes.h:36,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/stl_queue.h:292:5: note: template<class _Tp, class _Seq> bool std::operator!=(const std::queue<_Tp, _Seq>&, const std::queue<_Tp, _Seq>&)
+     operator!=(const queue<_Tp, _Seq>& __x, const queue<_Tp, _Seq>& __y)
+     ^
+/usr/include/c++/4.8/bits/stl_queue.h:292:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::queue<_Tp, _Seq>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/set:61:0,
+                 from MP1Node.cpp:9:
+/usr/include/c++/4.8/bits/stl_set.h:778:5: note: template<class _Key, class _Compare, class _Alloc> bool std::operator!=(const std::set<_Key, _Compare, _Alloc>&, const std::set<_Key, _Compare, _Alloc>&)
+     operator!=(const set<_Key, _Compare, _Alloc>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_set.h:778:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::set<_Key, _Compare, _Alloc>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+In file included from /usr/include/c++/4.8/set:62:0,
+                 from MP1Node.cpp:9:
+/usr/include/c++/4.8/bits/stl_multiset.h:763:5: note: template<class _Key, class _Compare, class _Alloc> bool std::operator!=(const std::multiset<_Key, _Compare, _Alloc>&, const std::multiset<_Key, _Compare, _Alloc>&)
+     operator!=(const multiset<_Key, _Compare, _Alloc>& __x,
+     ^
+/usr/include/c++/4.8/bits/stl_multiset.h:763:5: note:   template argument deduction/substitution failed:
+MP1Node.cpp:320:66: note:   mismatched types ‘const std::multiset<_Key, _Compare, _Alloc>’ and ‘int’
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                  ^
+MP1Node.cpp:320:71: error: expected ‘;’ before ‘)’ token
+     if (auto i=gossiped_members.begin(); i!=gossiped_members.end();i++)
+                                                                       ^
+MP1Node.cpp: In member function ‘MemberListEntry* MP1Node::findMemberEntry(std::vector<MemberListEntry>&, int)’:
+MP1Node.cpp:391:15: error: ‘i’ does not name a type
+     for (auto i = list.begin(); i < list.end(); ++i)
+               ^
+MP1Node.cpp:391:33: error: expected ‘;’ before ‘i’
+     for (auto i = list.begin(); i < list.end(); ++i)
+                                 ^
+MP1Node.cpp:391:33: error: ‘i’ was not declared in this scope
+MP1Node.cpp: In member function ‘void MP1Node::onRcvJoinReq(JoinReqMsg*)’:
+MP1Node.cpp:408:10: error: ‘e’ does not name a type
+     auto e = findMemberEntry(memberNode->memberList, addr2id(msg->addr));
+          ^
+MP1Node.cpp:409:10: error: ‘e’ was not declared in this scope
+     if (!e)
+          ^
+MP1Node.cpp:422:10: error: ‘class JoinRspMsg’ has no member named ‘memberList’
+     rsp->memberList = memberNode->memberList;
+          ^
+MP1Node.cpp: In member function ‘void MP1Node::onRcvJoinRsp(JoinRspMsg*)’:
+MP1Node.cpp:430:23: error: no matching function for call to ‘MP1Node::onRcvHeartbeat(JoinRspMsg*&)’
+     onRcvHeartbeat(msg);
+                       ^
+MP1Node.cpp:430:23: note: candidate is:
+In file included from MP1Node.cpp:8:0:
+MP1Node.h:121:7: note: void MP1Node::onRcvHeartbeat(HeartbeatMsg*)
+  void onRcvHeartbeat(HeartbeatMsg* msg);
+       ^
+MP1Node.h:121:7: note:   no known conversion for argument 1 from ‘JoinRspMsg*’ to ‘HeartbeatMsg*’
+MP1Node.cpp: In member function ‘void MP1Node::onRcvHeartbeat(HeartbeatMsg*)’:
+MP1Node.cpp:435:10: error: ‘e’ does not name a type
+     auto e = findMemberEntry(memberNode->memberList, addr2id(msg->addr));
+          ^
+MP1Node.cpp:437:99: error: ‘e’ was not declared in this scope
+                             , msg->addr.getAddress().c_str(), msg->heartbeat, par->getcurrtime(), e?e->heartbeat:-1);
+                                                                                                   ^
+MP1Node.cpp:442:14: error: ‘newe_addr’ does not name a type
+         auto newe_addr = getAddr(newentry.id, newentry.port);
+              ^
+MP1Node.cpp:444:49: error: ‘newe_addr’ was not declared in this scope
+             log->logNodeAdd(&memberNode->addr, &newe_addr);
+                                                 ^
+MP1Node.cpp: In member function ‘void MP1Node::updateMemberList(std::vector<MemberListEntry>&)’:
+MP1Node.cpp:455:15: error: ‘i’ does not name a type
+     for (auto i = memberList.begin(); i != memberList.end(); i++) {
+               ^
+MP1Node.cpp:455:39: error: expected ‘;’ before ‘i’
+     for (auto i = memberList.begin(); i != memberList.end(); i++) {
+                                       ^
+MP1Node.cpp:455:39: error: ‘i’ was not declared in this scope
+MP1Node.cpp:456:15: error: ISO C++ forbids declaration of ‘newe’ with no type [-fpermissive]
+         auto& newe = *i;
+               ^
+MP1Node.cpp:457:18: error: request for member ‘timestamp’ in ‘newe’, which is of non-class type ‘int’
+         if (newe.timestamp < par->getcurrtime() - CFG_GOSSIP_ENTRY_EXPIRATION) {
+                  ^
+MP1Node.cpp:460:18: error: request for member ‘id’ in ‘newe’, which is of non-class type ‘int’
+         if (newe.id == addr2id(memberNode->addr)) {
+                  ^
+MP1Node.cpp:463:14: error: ‘e’ does not name a type
+         auto e = findMemberEntry(memberNode->memberList, newe.id);
+              ^
+MP1Node.cpp:465:14: error: ‘e’ was not declared in this scope
+         if (!e) {
+              ^
+MP1Node.cpp:466:50: error: no matching function for call to ‘std::vector<MemberListEntry>::push_back(int&)’
+             memberNode->memberList.push_back(newe);
+                                                  ^
+MP1Node.cpp:466:50: note: candidate is:
+In file included from /usr/include/c++/4.8/vector:64:0,
+                 from stdincludes.h:32,
+                 from MP1Node.h:11,
+                 from MP1Node.cpp:8:
+/usr/include/c++/4.8/bits/stl_vector.h:901:7: note: void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = MemberListEntry; _Alloc = std::allocator<MemberListEntry>; std::vector<_Tp, _Alloc>::value_type = MemberListEntry]
+       push_back(const value_type& __x)
+       ^
+/usr/include/c++/4.8/bits/stl_vector.h:901:7: note:   no known conversion for argument 1 from ‘int’ to ‘const value_type& {aka const MemberListEntry&}’
+MP1Node.cpp:467:18: error: ‘newe_addr’ does not name a type
+             auto newe_addr = getAddr(newe.id, newe.port);
+                  ^
+MP1Node.cpp:469:53: error: ‘newe_addr’ was not declared in this scope
+                 log->logNodeAdd(&memberNode->addr, &newe_addr);
+                                                     ^
+MP1Node.cpp:471:25: error: request for member ‘heartbeat’ in ‘newe’, which is of non-class type ‘int’
+         } else if (newe.heartbeat > e->heartbeat){
+                         ^
+MP1Node.cpp:472:33: error: request for member ‘heartbeat’ in ‘newe’, which is of non-class type ‘int’
+             e->heartbeat = newe.heartbeat;
+                                 ^
+./Makefile: line 20: EmulNet.o:: command not found
+In file included from Params.h:12:0,
+                 from EmulNet.h:15,
+                 from EmulNet.cpp:7:
+Member.h: In constructor ‘Address::Address(std::string)’:
+Member.h:40:39: error: ‘stoi’ was not declared in this scope
+   int id = stoi(address.substr(0, pos));
+                                       ^
+Member.h: In member function ‘std::string Address::getAddress()’:
+Member.h:50:22: error: ‘to_string’ was not declared in this scope
+   return to_string(id) + ":" + to_string(port);
+                      ^
+./Makefile: line 23: Application.o:: command not found
+In file included from Params.h:12:0,
+                 from Log.h:11,
+                 from MP1Node.h:12,
+                 from Application.h:11,
+                 from Application.cpp:7:
+Member.h: In constructor ‘Address::Address(std::string)’:
+Member.h:40:39: error: ‘stoi’ was not declared in this scope
+   int id = stoi(address.substr(0, pos));
+                                       ^
+Member.h: In member function ‘std::string Address::getAddress()’:
+Member.h:50:22: error: ‘to_string’ was not declared in this scope
+   return to_string(id) + ":" + to_string(port);
+                      ^
+In file included from MP1Node.h:16:0,
+                 from Application.h:11,
+                 from Application.cpp:7:
+Queue.h: In static member function ‘static bool Queue::enqueue(std::queue<q_elt>*, void*, int)’:
+Queue.h:24:10: error: ‘class std::queue<q_elt>’ has no member named ‘emplace’
+   queue->emplace(element);
+          ^
+./Makefile: line 26: Log.o:: command not found
+In file included from Params.h:12:0,
+                 from Log.h:11,
+                 from Log.cpp:7:
+Member.h: In constructor ‘Address::Address(std::string)’:
+Member.h:40:39: error: ‘stoi’ was not declared in this scope
+   int id = stoi(address.substr(0, pos));
+                                       ^
+Member.h: In member function ‘std::string Address::getAddress()’:
+Member.h:50:22: error: ‘to_string’ was not declared in this scope
+   return to_string(id) + ":" + to_string(port);
+                      ^
+Log.cpp: In member function ‘void Log::LOG(Address*, const char*, ...)’:
+Log.cpp:94:22: warning: format not a string literal and no format arguments [-Wformat-security]
+   fprintf(fp2, buffer);
+                      ^
+Log.cpp:99:21: warning: format not a string literal and no format arguments [-Wformat-security]
+   fprintf(fp, buffer);
+                     ^
+./Makefile: line 29: Params.o:: command not found
+In file included from Params.h:12:0,
+                 from Params.cpp:7:
+Member.h: In constructor ‘Address::Address(std::string)’:
+Member.h:40:39: error: ‘stoi’ was not declared in this scope
+   int id = stoi(address.substr(0, pos));
+                                       ^
+Member.h: In member function ‘std::string Address::getAddress()’:
+Member.h:50:22: error: ‘to_string’ was not declared in this scope
+   return to_string(id) + ":" + to_string(port);
+                      ^
+./Makefile: line 32: Member.o:: command not found
+In file included from Member.cpp:7:0:
+Member.h: In constructor ‘Address::Address(std::string)’:
+Member.h:40:39: error: ‘stoi’ was not declared in this scope
+   int id = stoi(address.substr(0, pos));
+                                       ^
+Member.h: In member function ‘std::string Address::getAddress()’:
+Member.h:50:22: error: ‘to_string’ was not declared in this scope
+   return to_string(id) + ":" + to_string(port);
+                      ^
+./Makefile: line 35: clean:: command not found
